@@ -13,6 +13,7 @@
 		04F8B6BE1B2D0577009763DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F8B6BD1B2D0577009763DC /* Images.xcassets */; };
 		04F8B6C11B2D0577009763DC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F8B6BF1B2D0577009763DC /* LaunchScreen.xib */; };
 		04F8B6CD1B2D0577009763DC /* TTLineSearchBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F8B6CC1B2D0577009763DC /* TTLineSearchBarTests.swift */; };
+		04F8B6D71B2D0610009763DC /* TTLineSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F8B6D61B2D0610009763DC /* TTLineSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		04F8B6C61B2D0577009763DC /* TTLineSearchBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTLineSearchBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F8B6CB1B2D0577009763DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F8B6CC1B2D0577009763DC /* TTLineSearchBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTLineSearchBarTests.swift; sourceTree = "<group>"; };
+		04F8B6D61B2D0610009763DC /* TTLineSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTLineSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				04F8B6BD1B2D0577009763DC /* Images.xcassets */,
 				04F8B6BF1B2D0577009763DC /* LaunchScreen.xib */,
 				04F8B6B41B2D0577009763DC /* Supporting Files */,
+				04F8B6D61B2D0610009763DC /* TTLineSearchBar.swift */,
 			);
 			path = TTLineSearchBar;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F8B6B91B2D0577009763DC /* ViewController.swift in Sources */,
+				04F8B6D71B2D0610009763DC /* TTLineSearchBar.swift in Sources */,
 				04F8B6B71B2D0577009763DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
