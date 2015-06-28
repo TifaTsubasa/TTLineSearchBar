@@ -13,7 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var lineSearchBar = TTLineSearchBar(frame: CGRectMake(50, 50, 200, 30))
+        self.view.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        
+        var lineSearchBar = TTLineSearchBar(frame: CGRectMake(100, 300, 200, 30))
         self.view.addSubview(lineSearchBar)
     }
 
