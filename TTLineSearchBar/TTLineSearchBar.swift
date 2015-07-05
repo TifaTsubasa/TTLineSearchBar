@@ -10,24 +10,19 @@ import UIKit
 
 /** 数据管理类*/
 class LineDrawTime {
-    let time : Double = 1
+    let time : Double = 0.5
     var index : Int = 0
     var width : CGFloat = 0.0
     var height : CGFloat = 0
     
-    
-    
     var topFraps : Int {
-        get {
-            return Int(lineTime * 60)
-        }
+        return Int(lineTime * 60)
     }
     var circleFraps : Int {
         get {
             return Int(circleLineTime * 60)
         }
     }
-    
     var totalLength : CGFloat {
         get {
             return (width - height) * 2 + height * CGFloat(M_PI)
@@ -129,12 +124,18 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
         CGContextAddArc(ctx, rect.width - rect.height/2, rect.height/2, rect.height/2 - lineWidth, CGFloat(-M_PI_2), CGFloat(-M_PI_2) + circleAngle, 0)
         
         // 下横线
-        var bottomWidth : CGFloat = 0
+        var bottomWidth : CGFloat = drawTime.topLineLength - drawTime.topLineLength / CGFloat(drawTime.topFraps) * CGFloat(drawTime.index - drawTime.topFraps - drawTime.circleFraps)
+        if bottomWidth < rect.height / 2 {
+            bottomWidth = -rect.height / 2
+        }
+        
         if drawTime.index > drawTime.topFraps + drawTime.circleFraps {
-            bottomWidth = drawTime.topLineLength - drawTime.topLineLength / CGFloat(drawTime.topFraps) * CGFloat(drawTime.index - drawTime.topFraps - drawTime.circleFraps)
             CGContextAddLineToPoint(ctx, rect.height + bottomWidth, rect.height - lineWidth)
-        } else if drawTime.index == Int(drawTime.time * 60) {
-            CGContextAddLineToPoint(ctx, rect.height - lineWidth, rect.height - lineWidth)
+        }
+        
+        if (drawTime.index >= Int(drawTime.time * 60 + 1)) {
+            println(drawTime.index)
+            println(drawTime.time * 60)
         }
         
         CGContextStrokePath(ctx)
@@ -153,6 +154,7 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
     }
     
     func click() {
+        // 防止重复点击
         if drawTime.index != 0 {
             return
         }
@@ -162,7 +164,7 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
     }
     
     func addSearchBarOption () {
-        if drawTime.index > 60 {
+        if drawTime.index > Int(drawTime.time * 60) {
             linker.invalidate()
             linker.removeFromRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
             
@@ -174,7 +176,7 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
             searchBar.becomeFirstResponder()
             
             // 防止越界
-            drawTime.index = 60
+//            drawTime.index = Int(drawTime.time * 60)
         } else {
             drawTime.index++
             self.setNeedsDisplay()
