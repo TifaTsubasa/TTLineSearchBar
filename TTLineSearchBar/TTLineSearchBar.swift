@@ -78,17 +78,17 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
         self.addSubview(searchBtn)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func drawRect(rect: CGRect) {
         
         // Drawing code
-        var ctx = UIGraphicsGetCurrentContext()
+        let ctx = UIGraphicsGetCurrentContext()
         CGContextSetStrokeColorWithColor(ctx, UIColor.whiteColor().CGColor)
         
-        var lineWidth : CGFloat = 1.5
+        let lineWidth : CGFloat = 1.5
         CGContextSetLineWidth(ctx, lineWidth)
         
         // 左半圆 : 从上到下
@@ -134,8 +134,8 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
         }
         
         if (drawTime.index >= Int(drawTime.time * 60 + 1)) {
-            println(drawTime.index)
-            println(drawTime.time * 60)
+            print(drawTime.index)
+            print(drawTime.time * 60)
         }
         
         CGContextStrokePath(ctx)
@@ -145,10 +145,10 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
         
         drawTime.width = self.bounds.size.width
         drawTime.height = self.bounds.size.height
-        println(drawTime.topFraps, drawTime.circleFraps, drawTime.totalLength, drawTime.lineTime, drawTime.circleLineTime)
+        print(drawTime.topFraps, drawTime.circleFraps, drawTime.totalLength, drawTime.lineTime, drawTime.circleLineTime)
         
-        var btnWH : CGFloat = 20
-        var btnXY = (self.bounds.size.height - btnWH) / 2
+        let btnWH : CGFloat = 20
+        let btnXY = (self.bounds.size.height - btnWH) / 2
         searchBtn.frame = CGRectMake(btnXY, btnXY, btnWH, btnWH)
         searchBtn.layer.cornerRadius = self.bounds.size.height / 2
     }
@@ -175,8 +175,6 @@ class TTLineSearchBar: UIView, UITextFieldDelegate {
             searchBar.delegate = self
             searchBar.becomeFirstResponder()
             
-            // 防止越界
-//            drawTime.index = Int(drawTime.time * 60)
         } else {
             drawTime.index++
             self.setNeedsDisplay()

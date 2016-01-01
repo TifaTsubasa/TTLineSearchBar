@@ -159,6 +159,8 @@
 		04F8B6A91B2D0577009763DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = tifatsubasa;
 				TargetAttributes = {
@@ -415,6 +417,7 @@
 				04F8B6D21B2D0577009763DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04F8B6D31B2D0577009763DC /* Build configuration list for PBXNativeTarget "TTLineSearchBarTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +426,7 @@
 				04F8B6D51B2D0577009763DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
